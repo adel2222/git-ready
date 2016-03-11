@@ -34,8 +34,12 @@ def ensure_remote_branch_is_tracked(branch):
             break
     else:
         # We are not tracking the remote branch, so track it.
-        sys.stdout.write(subprocess.check_output(
-            ['git', 'checkout', '--track', 'origin/%s' % branch]))
+        try:
+            sys.stdout.write(subprocess.check_output(
+                ['git', 'checkout', '--track', 'origin/%s' % branch]))
+        except subprocess.CalledProcessError:
+            # Bail gracefully.
+            raise SystemExit(1)
 
 
 def main(branch):
