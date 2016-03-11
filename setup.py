@@ -15,8 +15,8 @@ import setuptools
 
 setuptools.setup(
     name='git-ready',
-    version='1.0.0',
-    description='Get ready to commit.',
+    version='1.0.1',
+    description='Get ready to commit, socially.',
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
     url='http://github.com/dolph/git-ready',
