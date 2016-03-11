@@ -2,8 +2,6 @@
 ``git ready``
 =============
 
-Get ready to commit, socially.
-
 Traditional, branch-based git workflows are effectively anti-social when
 combined with social code review tools, like `Gerrit
 <https://www.gerritcodereview.com/>`_, where the philosophy of an effective
