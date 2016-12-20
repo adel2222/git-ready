@@ -8,7 +8,7 @@ SCRIPTPATH=$(dirname "$SCRIPT")
 
 # Install test dependencies
 apt-get update
-apt-get install git python-pip -y
+apt-get install git -y
 
 # Setup git-ready
 cd $SCRIPTPATH/../
