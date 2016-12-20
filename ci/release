@@ -1,11 +1,17 @@
 #!/bin/bash
 set -e
 
-if [ ! -f pypirc ] ; then
+# Absolute path to this script, e.g. /home/user/bin/foo.sh
+SCRIPT=$(readlink -f "$0")
+# Absolute path this script is in, thus /home/user/bin
+SCRIPTPATH=$(dirname "$SCRIPT")
+
+if [ ! -f ~/.pypirc ] ; then
     echo 'PyPi RC file does not exist, attempting to create one...'
     echo '[pypi]' > ~/.pypirc
     echo "username: ${1}" >> ~/.pypirc
     echo "password: ${2}" >> ~/.pypirc
 fi
 
+cd $SCRIPTPATH/../
 python setup.py sdist upload

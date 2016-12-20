@@ -6,13 +6,18 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-# Testing dependencies.
+# Install test dependencies
 apt-get update
 apt-get install git python-pip -y
 
-pip install -e $SCRIPTPATH
-git clone --depth=1 https://github.com/openstack/nova.git
-cd nova
+# Setup git-ready
+cd $SCRIPTPATH/../
+pip install -e .
+
+# Prepare to test against a subject repo.
+mkdir -p $SCRIPTPATH/ci/tmp/
+git clone --depth=1 https://github.com/openstack/nova.git $SCRIPTPATH/ci/tmp/nova
+cd $SCRIPTPATH/ci/tmp/nova
 
 # Test with no branch specified.
 git ready

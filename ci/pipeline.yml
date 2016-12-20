@@ -22,7 +22,7 @@ jobs:
         inputs:
         - name: repo
         run:
-            path: repo/test.sh
+            path: repo/ci/test
 - name: release
   plan:
   - get: repo
@@ -39,4 +39,4 @@ jobs:
         inputs:
         - name: repo
         run:
-            path: repo/release.sh {{pypi-username}} {{pypi-password}}
+            path: repo/ci/release {{pypi-username}} {{pypi-password}}
