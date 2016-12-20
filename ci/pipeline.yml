@@ -23,6 +23,22 @@ jobs:
         - name: repo
         run:
             path: repo/ci/test
+- name: test-python2.7
+  plan:
+  - get: repo
+    trigger: true
+  - task: test
+    config:
+        platform: linux
+        image_resource:
+            type: docker-image
+            source:
+                repository: python
+                tag: "2.7"
+        inputs:
+        - name: repo
+        run:
+            path: repo/ci/test
 - name: test-python3
   plan:
   - get: repo
@@ -39,10 +55,64 @@ jobs:
         - name: repo
         run:
             path: repo/ci/test
+- name: test-python3.3
+  plan:
+  - get: repo
+    trigger: true
+  - task: test
+    config:
+        platform: linux
+        image_resource:
+            type: docker-image
+            source:
+                repository: python
+                tag: "3.3"
+        inputs:
+        - name: repo
+        run:
+            path: repo/ci/test
+- name: test-python3.4
+  plan:
+  - get: repo
+    trigger: true
+  - task: test
+    config:
+        platform: linux
+        image_resource:
+            type: docker-image
+            source:
+                repository: python
+                tag: "3.4"
+        inputs:
+        - name: repo
+        run:
+            path: repo/ci/test
+- name: test-python3.5
+  plan:
+  - get: repo
+    trigger: true
+  - task: test
+    config:
+        platform: linux
+        image_resource:
+            type: docker-image
+            source:
+                repository: python
+                tag: "3.5"
+        inputs:
+        - name: repo
+        run:
+            path: repo/ci/test
 - name: release
   plan:
   - get: repo
-    passed: [test-python2, test-python3]
+    passed:
+    - test-python2
+    - test-python2.7
+    - test-python3
+    - test-python3.3
+    - test-python3.4
+    - test-python3.5
     trigger: true
   - task: upload-to-pypi
     config:
