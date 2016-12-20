@@ -56,4 +56,4 @@ jobs:
         - name: repo
         run:
             path: repo/ci/release
-            args: [pypi-username, pypi-password]
+            args: [{{pypi-username}}, {{pypi-password}}]
