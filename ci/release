@@ -18,4 +18,10 @@ if [ ! -f $HOME/.pypirc ] ; then
 fi
 
 cd $SCRIPTPATH/../
-python setup.py sdist upload
+
+# Build a source distribution.
+python setup.py sdist
+
+# Check if we need to upload a new version before doing so.
+VERSION=`python setup.py --version`
+curl -I https://pypi.python.org/pypi/git-ready/$VERSION | grep "HTTP/1.1 200 OK" || python setup.py upload
