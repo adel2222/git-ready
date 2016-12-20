@@ -48,7 +48,8 @@ def main(branch):
         # Ensure that we're in a git repository. This command is silent unless
         # you're not actually in a git repository, in which case, you receive a
         # "Not a git repository" error message.
-        sys.stdout.write(subprocess.check_output(['git', 'rev-parse']))
+        output = subprocess.check_output(['git', 'rev-parse']).decode('utf-8')
+        sys.stdout.write(output)
     except subprocess.CalledProcessError:
         # Bail if we're not in a git repository.
         return
