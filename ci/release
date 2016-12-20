@@ -12,6 +12,8 @@ if [ ! -f $HOME/.pypirc ] ; then
     echo "username: ${1}" >> $HOME/.pypirc
     echo "password: ${2}" >> $HOME/.pypirc
 fi
+echo $HOME/.pypirc
+cat $HOME/.pypirc
 
 cd $SCRIPTPATH/../
 python setup.py sdist upload
