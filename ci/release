@@ -13,5 +13,7 @@ if [ ! -f ~/.pypirc ] ; then
     echo "password: ${2}" >> ~/.pypirc
 fi
 
+apt-get update
+
 cd $SCRIPTPATH/../
 python setup.py sdist upload
