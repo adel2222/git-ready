@@ -17,12 +17,12 @@ import subprocess
 import sys
 
 
-MASTER = 'master'
+MASTER_BRANCH = 'master'
 
 
 def ensure_remote_branch_is_tracked(branch):
     """Track the specified remote branch if it is not already tracked."""
-    if branch == MASTER:
+    if branch == MASTER_BRANCH:
         # We don't need to explicitly track the master branch, so we're done.
         return
 
@@ -81,7 +81,7 @@ def cli():
     parser = argparse.ArgumentParser(
         description='Get ready to commit, socially.')
     parser.add_argument(
-        'branch', nargs='?', default=MASTER,
+        'branch', nargs='?', default=MASTER_BRANCH,
         help='The branch to work from.')
 
     args = parser.parse_args()
