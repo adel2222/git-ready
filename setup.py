@@ -15,7 +15,7 @@ import setuptools
 
 setuptools.setup(
     name='git-ready',
-    version='1.1.0',
+    version='1.1.1',
     description='Get ready to commit, socially.',
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
