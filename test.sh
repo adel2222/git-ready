@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+apt-get update
 apt-get install git python-pip -y
 pip install -e .
 git clone --depth=1 https://github.com/openstack/nova.git
