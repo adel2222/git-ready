@@ -15,11 +15,11 @@ import setuptools
 
 setuptools.setup(
     name='git-ready',
-    version='1.1.2',
+    version='1.1.3',
     description='Get ready to commit, socially.',
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
-    url='http://github.com/dolph/git-ready',
+    url='https://github.com/dolph/git-ready',
     scripts=['git_ready.py'],
     py_modules=['git_ready'],
     entry_points={'console_scripts': ['git-ready = git_ready:cli']},
