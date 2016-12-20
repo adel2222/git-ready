@@ -15,7 +15,7 @@ import setuptools
 
 setuptools.setup(
     name='git-ready',
-    version='1.0.3',
+    version='1.1.0',
     description='Get ready to commit, socially.',
     author='Dolph Mathews',
     author_email='dolph.mathews@gmail.com',
@@ -27,6 +27,8 @@ setuptools.setup(
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: Developers',
+        'Programming Language :: Python :: 2',
+        'Programming Language :: Python :: 3',
         'Topic :: Utilities',
     ],
 )
