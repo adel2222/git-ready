@@ -6,11 +6,11 @@ SCRIPT=$(readlink -f "$0")
 # Absolute path this script is in, thus /home/user/bin
 SCRIPTPATH=$(dirname "$SCRIPT")
 
-if [ ! -f ~/.pypirc ] ; then
+if [ ! -f $HOME/.pypirc ] ; then
     echo 'PyPi RC file does not exist, attempting to create one...'
-    echo '[pypi]' > ~/.pypirc
-    echo "username: ${1}" >> ~/.pypirc
-    echo "password: ${2}" >> ~/.pypirc
+    echo '[pypi]' > $HOME/.pypirc
+    echo "username: ${1}" >> $HOME/.pypirc
+    echo "password: ${2}" >> $HOME/.pypirc
 fi
 
 cd $SCRIPTPATH/../
